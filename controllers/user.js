@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const User = require("../models/user.js");
 
 
@@ -43,7 +43,7 @@ module.exports.Logout = (req, res, next) => {
     req.flash("success", "you are logged out!");
     res.redirect("/listings");
   });
-=======
+
 const User = require("../models/user.js");
 
 
@@ -88,5 +88,5 @@ module.exports.Logout = (req, res, next) => {
     req.flash("success", "you are logged out!");
     res.redirect("/listings");
   });
->>>>>>> 73859dbc517a6651d4ba007b0089f8536e5da0d4
-}
+
+}}

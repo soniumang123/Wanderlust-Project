@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const Review = require("../models/review");
 const Listing = require("../models/listing");
 const {reviewSchema} = require("../schema");
@@ -25,7 +25,7 @@ module.exports.createReview = async (req, res) => {
     await Review.findById(reviewid);
     req.flash("success", " Review Deleted!!");
     res.redirect(`/listings/${id}`);
-=======
+
 const Review = require("../models/review");
 const Listing = require("../models/listing");
 const {reviewSchema} = require("../schema");
@@ -52,5 +52,5 @@ module.exports.createReview = async (req, res) => {
     await Review.findById(reviewid);
     req.flash("success", " Review Deleted!!");
     res.redirect(`/listings/${id}`);
->>>>>>> 73859dbc517a6651d4ba007b0089f8536e5da0d4
-  }
+
+  }}

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const Listing = require("../models/listing");
 const listing = require("../models/listing");
 const { listingSchema } = require("../schema");
@@ -89,7 +89,6 @@ module.exports.deleteListing = async (req, res) => {
   req.flash("success", "Listing Deleted");
   res.redirect("/listings");
 };
-=======
 const Listing = require("../models/listing");
 const listing = require("../models/listing");
 const { listingSchema } = require("../schema");
@@ -180,4 +179,4 @@ module.exports.deleteListing = async (req, res) => {
   req.flash("success", "Listing Deleted");
   res.redirect("/listings");
 };
->>>>>>> 73859dbc517a6651d4ba007b0089f8536e5da0d4
+
