@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
      font-family: "Plus Jakarta Sans", sans-serif !important;
   font-optical-sizing: auto !important;
@@ -97,3 +98,104 @@ body{
   border-radius: 8px;
 }
 
+=======
+body{
+     font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: weight !important;
+  font-style: normal !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container{
+  flex: 1;
+}
+.navbar {
+  height: 5rem;
+  background-color: white;
+}
+.fa-compass {
+  color: #fe424d;
+  font-size: 2rem;
+}
+.nav-link {
+  color: #222222 !important;
+}
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+.f-info-links,.f-info-socials,.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+.f-info {
+  height: 8rem;
+  display: flex;
+  background-color: #ebebeb;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+  text-align: center;
+  gap: 2px;
+}
+.listing-card{
+  border: none !important;
+  margin-bottom: 2rem;
+}
+.card-img-top{
+  border-radius: 1rem !important;
+  width: 100%;
+  object-fit: cover !important;
+}
+.listing-link{
+  text-decoration: none;
+  color: #222222;
+}
+.card-img-overlay{
+   opacity: 0;
+}
+.card-img-overlay:hover{
+  opacity: 0.2;
+  background-color: white;
+}
+.add-btn{
+  background-color: #fe424d !important;
+  border: none !important;
+
+}
+.edit-btn{
+  background-color: #fe424d !important;
+  border: none !important;
+}
+/* show page */
+.show-img{
+    width: 40vw !important;
+    height: 30vh !important;
+}
+.btn{
+  background-color: #fe424d !important;
+  border: none !important;
+}
+.btn-success{
+  background-color: green !important;
+}
+.edit-image-preview {
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+>>>>>>> 73859dbc517a6651d4ba007b0089f8536e5da0d4
