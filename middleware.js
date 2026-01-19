@@ -40,13 +40,13 @@ module.exports.isOwner = async (req, res, next) => {
   }
 
   // current user exist?
-  if (!res.locals.currUser) {
+  if (!res.locals.currentUser) {
     req.flash("error", "You must be logged in.");
     return res.redirect("/login");
   }
 
   // actual ownership check
-  if (!listing.owner.equals(res.locals.currUser._id)) {
+  if (!listing.owner.equals(res.locals.currentUser._id)) {
     req.flash("error", "You are not the owner of this listing");
     return res.redirect(`/listings/${id}`);
   }
@@ -94,13 +94,13 @@ module.exports.isreviewAuthor = async (req, res, next) => {
   }
 
   // current user exist?
-  if (!res.locals.currUser) {
+  if (!res.locals.currentUser) {
     req.flash("error", "You must be logged in.");
     return res.redirect("/login");
   }
 
   // actual author check
-  if (!review.author.equals(res.locals.currUser._id)) {
+  if (!review.author.equals(res.locals.currentUser._id)) {
     req.flash("error", "You did not create this review");
     return res.redirect(`/listings/${id}`);
   }
