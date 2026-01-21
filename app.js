@@ -98,6 +98,10 @@ app.use("/listings",listingRouter);
 app.use("/listings/:id/review",reviewRouter);
 app.use("/",userRouter);
 
+app.get
+("/",(req,res)=>{
+  res.redirect("/listings");
+})
 app.get("/favicon.ico", (req, res) => res.status(204).end());
 
 app.use((req, res, next) => {

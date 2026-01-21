@@ -1,39 +1,6 @@
 <% layout("/listings/layouts/boilerplate") %>
-  <style>
-    #filters {
-      display: flex;
-      flex-wrap: wrap;
-    }
+ <link rel="stylesheet" href="/css/index.css">
 
-    .filter {
-      text-align: center;
-      margin-right: 2rem;
-      opacity: 0.6;
-      
-    }
-
-    .filter:hover {
-      opacity: 1;
-      cursor: pointer;
-    }
-
-    .filter p {
-      font-size: 0.8rem;
-    }
-    .tax-info{
-      display: none;
-    }
-    .tax-toggle{
-      border: 1px solid black;
-      border-radius: 1rem;
-      height: 3.5rem;
-      padding: 0.8rem;
-      margin-left: 3rem;
-
-    }
-  </style>
-
-  <body>
     <div class="container mt-4">
       <!-- <h3>All Listings</h3> -->
       <div id="filters">
@@ -104,10 +71,10 @@
       <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
         <% for (let listing of alllistings) { %>
           <div class="col mb-4">
+             <a href="/listings/<%= listing.id %>" class="listing-link">
             <div class="card h-100 listing-card">
-              <a href="/listings/<%= listing.id %>" class="listing-link">
-                <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image"
-                  style="height: 20rem; object-fit: cover;">
+             
+                <img src="<%= listing.image.url %>" class="card-img-top listing-img" alt="Listing Image">
                 <div class="card-img-overlay"></div>
                 <div class="card-body">
                   <h5 class="card-title">
@@ -127,20 +94,6 @@
 
       </div>
     </div>
-    
-  </body>
-  <script>
-      let taxSwitch = document.getElementById("switchCheckDefault");
-      taxSwitch.addEventListener("click",()=>{
-        let taxInfo = document.getElementsByClassName("tax-info");
-        for(info of taxInfo) {
-          if(info.style.display != "inline"){
-            info.style.display = "inline";
-
-          }else{
-          info.style.display = "none";
-          }
-          
-        }
-      })
-    </script>
+    <script src="/js/index.js"></script>
+  
+  
