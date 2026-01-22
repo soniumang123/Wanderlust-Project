@@ -12,15 +12,19 @@ module.exports.signup = async (req, res, next) => {
     const registeredUser = await User.register(newUser, password);
 
     req.login(registeredUser, (err) => {
-      if (err) return next(err);
+      if (err){
+        console.log("login error", err);
+        return next(err );
+      }
+      console.log("User logged in:",req.user);
 
       req.flash("success", "Welcome to Wanderlust");
-      res.redirect("/listings");
+      return res.redirect("/listings");
     });
 
   } catch (e) {
     req.flash("error", "User already exists! Please login.");
-    res.redirect("/signup");
+    return res.redirect("/signup");
   }
 };
 
