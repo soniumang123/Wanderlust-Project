@@ -79,6 +79,11 @@ body{
   height: auto;
 }
 
+.main-content {
+  flex: 1;
+}
+
+
 .btn-success{
   background-color: green !important;
 }
