@@ -20,6 +20,6 @@ router.route("/login").get(userController.renderLoginForm)
   }), userController.Login)
 
   
-router.get("/logout", userController.Logout);
+router.post("/logout", userController.Logout);
 
 module.exports = router;
