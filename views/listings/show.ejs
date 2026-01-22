@@ -36,7 +36,7 @@
     </div>
 
     <!-- EDIT / DELETE BUTTONS -->
-    <% if (currUser && listing.owner._id.equals(currUser._id)) { %>
+    <% if (currentUser && listing.owner._id.equals(currentUser._id)) { %>
       <div class="d-flex gap-3 mb-4">
         <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark">Edit</a>
 
@@ -49,7 +49,7 @@
     <hr>
 
     <!-- REVIEW FORM -->
-    <% if (currUser) { %>
+    <% if (currentUser) { %>
 
       <h4>Leave a Review</h4>
 
