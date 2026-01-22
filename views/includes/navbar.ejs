@@ -45,12 +45,12 @@
 
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
 
-        <% if (!currUser) { %>
+        <% if (!currentUser) { %>
           <a class="nav-link fw-bold" href="/signup">Sign up</a>
           <a class="nav-link fw-bold" href="/login">Log in</a>
         <% } %>
 
-        <% if (currUser) { %>
+        <% if (currentUser) { %>
           <form action="/logout" method="POST" class="d-inline">
             <button class="nav-link btn btn-link fw-bold" type="submit">
               Log out
