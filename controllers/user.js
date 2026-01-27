@@ -1,31 +1,30 @@
 const User = require("../models/user.js");
+const passport = require("passport");
 
 module.exports.renderSignup = (req, res) => {
   res.render("users/signup.ejs");
 };
 
 module.exports.signup = async (req, res, next) => {
-  try {
-    let { username, email, password } = req.body;
+   try {
+      const { username, email, password } = req.body;
 
-    const newUser = new User({ username, email });
-    const registeredUser = await User.register(newUser, password);
+      const newUser = new User({ username, email });
+      await User.register(newUser, password);
 
-    req.login(registeredUser, (err) => {
-      if (err){
-        console.log("login error", err);
-        return next(err );
-      }
-      console.log("User logged in:",req.user);
+      // Proper login after signup
+      req.login(newUser, (err) => {
+         if (err) return next(err);
 
-      req.flash("success", "Welcome to Wanderlust");
-      return res.redirect("/listings");
-    });
+         req.flash("success", "Welcome to Wanderlust");
+         return res.redirect("/listings");
+      });
 
-  } catch (e) {
-    req.flash("error", "User already exists! Please login.");
-    return res.redirect("/signup");
-  }
+   } catch (e) {
+      console.log("Signup Error:", e);
+      req.flash("error", e.message);
+      return res.redirect("/signup");
+   }
 };
 
 module.exports.renderLoginForm = (req, res) => {

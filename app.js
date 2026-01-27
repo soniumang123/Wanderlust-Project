@@ -31,17 +31,19 @@ store.on("error",(err)=>{
   console.log("ERROR in MONGO SESSION STORE",err);
 });
 
-const sessionOption ={
+const sessionOption = {
   store,
-  secret: process.env.SECRET,
+  name: "wanderlust.sid",   // 🔥 IMPORTANT
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie:{
-    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+  cookie: {
+    httpOnly: true,
     maxAge: 7 * 24 * 60 * 60 * 1000,
-    httpOnly:true,
-  }
+    sameSite: "lax",        // 🔥 IMPORTANT
+  },
 };
+
 
 
 main()
@@ -70,8 +72,8 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
 
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -82,7 +84,13 @@ app.use((req,res,next)=>{
   res.locals.error = req.flash("error");
   res.locals.currentUser = req.user;
   next();
-})
+});
+
+app.use((req,res,next)=>{
+  console.log("SESSION =>",req.session);
+  console.log("USER=>",req.user);
+  next();
+});
 
 app.get("/demouser",async(req,res)=>{
   let fakeUser = new User({

@@ -98,4 +98,17 @@
       <div class="mb-3">
         <label for="country" class="form-label">Country</label>
         <input
-          i
+          id="country"
+    type="text"
+    name="listing[country]"
+    value="<%= listing.country %>"
+    class="form-control"
+    required
+  />
+  <div class="invalid-feedback">Enter a valid country.</div>
+</div>
+
+      <button type="submit" class="btn btn-primary">Update Listing</button>
+    </form>
+  </div>
+</div>

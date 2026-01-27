@@ -29,4 +29,14 @@
       margin-left: 3rem;
     }
   
+.loader {
+  text-align: center;
+  padding: 25px;
+  font-size: 18px;
+  color: #555;
+}
+
+.hidden {
+  display: none;
+}
 
