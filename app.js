@@ -1,6 +1,5 @@
-if(process.env.NODE_ENV != "production"){
-  require('dotenv').config();
-}
+require('dotenv').config();
+
 
 const express = require("express");
 const app = express();
@@ -20,6 +19,9 @@ const flash = require("connect-flash");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter  = require("./routes/review.js");
 const userRouter  = require("./routes/user.js");
+
+console.log("MONGO URL =>", process.env.MONGO_URL);
+
 
 const dbUrl = process.env.MONGO_URL;
 
