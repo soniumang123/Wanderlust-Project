@@ -3,8 +3,8 @@ const { listingSchema } = require("../schema");
 
 // Index
 module.exports.index = async (req, res) => {
-  const alllistings = await Listing.find({});
-  res.render("./listings/index.ejs", { alllistings });
+  const listings = await Listing.find({});
+  res.render("./listings/index.ejs", { listings });
 };
 
 // New form
@@ -68,6 +68,17 @@ module.exports.renderEditForm = async (req, res) => {
     listing: listingData,
     originalImageUrl,
   });
+};
+
+module.exports.index = async (req, res) => {
+  const { category } = req.query;
+  let listings;
+  if (category) {
+    listings = await Listing.find({ category });
+  } else {
+    listings = await Listing.find({});
+  }
+  res.render("./listings/index.ejs", { listings });
 };
 
 // Update

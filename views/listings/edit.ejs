@@ -107,6 +107,31 @@
   />
   <div class="invalid-feedback">Enter a valid country.</div>
 </div>
+      <!-- CATEGORY -->
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select
+          id="category" 
+          name="listing[category]"
+          class="form-control"
+          required
+        >
+          <option value="">Select a category</option>
+          <option value="trending" <%= listing.category === "Trending" ? "selected" : "" %>>Trending</option>
+          <option value="rooms" <%= listing.category === "Rooms" ? "selected" : "" %>>Rooms</option>
+          <option value="iconic cities" <%= listing.category === "Iconic Cities" ? "selected" : "" %>>Iconic Cities</option>
+          <option value="mountains" <%= listing.category === "Mountains" ? "selected" : "" %>>Mountains</option>
+          <option value="castles" <%= listing.category === "Castles" ? "selected" : "" %>>Castles</option>
+          <option value="amazing pools" <%= listing.category === "Amazing Pools" ? "selected" : "" %>>Amazing Pools</option>
+          <option value="camping" <%= listing.category === "Camping" ? "selected" : "" %>>Camping</option>
+          <option value="farms" <%= listing.category === "Farms" ? "selected" : "" %>>Farms</option>
+          <option value="arctic" <%= listing.category === "Arctic" ? "selected" : "" %>>Arctic</option>
+          <option value="domes" <%= listing.category === "Domes" ? "selected" : "" %>>Domes</option>
+          <option value="boats" <%= listing.category === "Boats" ? "selected" : "" %>>Boats</option>
+          <option value="other" <%= listing.category === "Others" ? "selected" : "" %>>Others</option>
+        </select>
+        <div class="invalid-feedback">Please select a category.</div>
+      </div>
 
       <button type="submit" class="btn btn-primary">Update Listing</button>
     </form>

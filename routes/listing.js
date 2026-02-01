@@ -1,3 +1,4 @@
+
 const express = require("express");
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
@@ -9,6 +10,7 @@ const {storage} = require("../cloudConfig.js");
 const upload = multer({ storage});
 
 
+
 //router.route
 router.route("/").get(wrapAsync(listingController.index))
 .post(
@@ -18,6 +20,26 @@ router.route("/").get(wrapAsync(listingController.index))
   validateListing,
   wrapAsync(listingController.createListing)
 )
+
+router.get("/search", async (req, res) => {
+  const { destination } = req.query;
+
+  if (!destination || destination.trim() === "") {
+    req.flash("error", "Please enter a destination");
+    return res.redirect("/listings");
+  }
+
+  const listings = await Listing.find({
+    location: { $regex: destination, $options: "i" }
+  });
+
+  if (listings.length === 0) {
+    req.flash("error", "Listings not found");
+    return res.redirect("/listings");
+  }
+
+  res.render("listings/index.ejs", { listings });
+});
 
 // new Route
 router.get("/new", isLoggedIN, listingController.renderNewForm);
