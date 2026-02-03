@@ -37,6 +37,7 @@
     color: #000000;
     border-radius: 0px 25px 25px 0px;
     padding: 0 1rem 0 1rem;
+    margin-left: 1px;
   }
   .search-btn:hover{
     background-color: #dcdcdc;
@@ -52,6 +53,11 @@
   justify-content: center !important;
   width: 400px;
 }
+.search-inp:focus{
+  outline: none;
+  box-shadow: 0 0 5px #1a73e8;
+  border: 0.7px solid #1a73e8;
+}
 .navbar-search-wrapper {
   display: flex;
   justify-content: center;
@@ -64,3 +70,4 @@
   }
   
 }
+
