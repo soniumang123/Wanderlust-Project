@@ -12,11 +12,18 @@
   width: 100%;
 }
 .navbar .container-fluid {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  position: relative;
+  display: flex;
   align-items: center;
   width: 100%;
 }
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .fa-compass {
   color: #fe424d;
   font-size: 2rem;
@@ -42,6 +49,7 @@
 .search-inp{
   border-radius: 25px 0px 0px 25px;
   padding: 0.5rem 1rem;
+  justify-content: center !important;
   width: 400px;
 }
 .navbar-search-wrapper {
@@ -51,6 +59,7 @@
 
 @media(max-width:590px) {
   .search-inp{
+    justify-content: center;
     width: 150px;
   }
   
